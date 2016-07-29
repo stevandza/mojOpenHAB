@@ -4,6 +4,8 @@
 
  Kombinacija sa UNO R2 i Ethernrt Shield plocom W5100
  
+ Nije probano 29.07.2016.
+ 
  Reconnecting MQTT example - non-blocking
 
  This sketch demonstrates how to keep the client connected
