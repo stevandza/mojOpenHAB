@@ -8,16 +8,13 @@ MAP  :  pir.map
 01.08.2016
 
  Na samom senzoru je i povratna informacija o stanju dvorisne rasvete navezano za PIR senzor !
+
+ Iz nekog razloga ova verzija ne gubi konekciju pretpostavljam da svaki klijent mora imati svoje ime    client.connect("ESP8266ClientPir") !
  
 */
 
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
-
-
-#include <Wire.h>  // Comes with Arduino IDE
-
-
 
 
 #define DVORISNA_RASVETA       4     //  OUT -   D2   
@@ -28,7 +25,9 @@ MAP  :  pir.map
 const char* ssid = "Zozon";
 const char* password = "zozon1978";
 const char* mqtt_server = "192.168.1.100";
+
 int channel = 11;
+
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -102,12 +101,12 @@ void reconnect() {
   while (!client.connected()) {
     Serial.print("Attempting MQTT connection...");
     // Attempt to connect
-    if (client.connect("ESP8266Client")) {
+    if (client.connect("ESP8266ClientPir")) {
       Serial.println("connected");
       // Once connected, publish an announcement...
-      client.publish("Dvo_ESP8266", "hello world");
+      client.publish("PIR_ESP8266", "hello world");
       // ... and resubscribe
-      client.subscribe("kuca/Dvo/#");
+      client.subscribe("kuca/Dvo/sv1");
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
