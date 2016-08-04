@@ -5,7 +5,7 @@ MQTT : "kuca/Dvo/PIR"   ---->  OPEN / CLOSE
 
 MAP  :  pir.map
 
-01.08.2016
+04.08.2016
 
  Na samom senzoru je i povratna informacija o stanju dvorisne rasvete navezano za PIR senzor !
 
@@ -144,13 +144,13 @@ void loop() {
 
   int ko1 = digitalRead(PIR_TERASA_DVORISTE);
   if (old_ko1 != ko1 ) {
-     if ( ko1 == 1)   { client.publish("kuca/Dvo/PIR", "OPEN");
-     Serial.println("PIR je OPEN");
+     if ( ko1 == 1)   { client.publish("kuca/Dvo/PIR", "CLOSED");
+     Serial.println("PIR je CLOSED");
      }
      
-     else           {  client.publish("kuca/Dvo/PIR", "CLOSED");  
+     else           {  client.publish("kuca/Dvo/PIR", "OPEN");  
      
-                        Serial.println("PIR je CLOSED");
+                        Serial.println("PIR je OPEN");
      }
   }
      old_ko1 = ko1; 
