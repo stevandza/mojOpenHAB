@@ -112,7 +112,7 @@ void rf_C() {
  if ( digitalRead(RF_C) == 0 )   { client.publish("kuca/Dvo/sv3","OFF" ); }
 }
 
-void rf_C() { 
+void rf_D() { 
  
 }
  
