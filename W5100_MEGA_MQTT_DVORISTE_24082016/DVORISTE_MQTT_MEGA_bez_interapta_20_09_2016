@@ -415,7 +415,7 @@ int ko2 = digitalRead(PRISUSTVO_OSOBE);
   dtostrf(potDim,4,0,potDimCh);
   Serial.print("Nivo svetla sa Potenciometra je:  ");
   Serial.println(potDimCh);
-  client.publish("kuca/Dvo/svd1", potDimCh); 
+  client.publish("kuca/Dvo/svd1Pot", potDimCh); 
   }
  potDimOld = potDim;      
 
