@@ -254,7 +254,7 @@ void setup()
    client.setServer(server, 1883);
    client.setCallback(callback);
 
-   Serial3.begin(9600);   
+   Serial2.begin(9600);   
 
    Ethernet.begin(mac, ip);
    delay(1500);
@@ -312,8 +312,8 @@ void loop() {
         
 //****  Serijska komunikacija sa RF PRIJEMNIKA ********
 
-  if (Serial3.available()) {    
-     rxByte = Serial3.read();
+  if (Serial2.available()) {    
+     rxByte = Serial2.read();
      Serial.println("");
      Serial.print("RF Prijem ->  ");
      Serial.println(rxByte);
