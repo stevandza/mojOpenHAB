@@ -358,7 +358,7 @@ void loop() {
 
   potDim = analogRead(POT_DIM_DVORISTE) / 10.24;  //Skalirano od 0 - 100%
 
- if (  (potDim > potDimOld + 6) ||  (potDim < potDimOld - 6) ) {
+ if (  (potDim > potDimOld + 3) ||  (potDim < potDimOld - 3) ) {
   dtostrf(potDim,1,0,potDimCh);
   Serial.print("Nivo svetla sa Potenciometra je:  ");
   Serial.print("-");
