@@ -153,7 +153,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
 
   if (String((char*)topic) == "kuca/Dvo/svd1") {       //  Dimer - Dvorisna rasveta
 
-       analogWrite(DIMER_DVORISTE,100-strPayload.toInt());   
+       analogWrite(DIMER_DVORISTE,255 - strPayload.toInt()*2.55 );   
        Serial.println("");
        Serial.print("Nivo svetla na dvoristu je: ");
        Serial.print(strPayload.toInt());
