@@ -45,7 +45,7 @@ Probano i radi bez diskonektovanja !!!!! :P
 #define TX_ENABLE_PIN 35         // define the EIA-485 transmit driver pin ( RE + DE pin's modules)
 SoftwareSerial rs485(30, 34);    // SoftwareSerial rs485(RO, DI); pins name on the module
 
-#define DHTTYPE  DHT11
+#define DHTTYPE  DHT22
 DHT dht(PODRUM_DHTPIN, DHTTYPE);
 
 
