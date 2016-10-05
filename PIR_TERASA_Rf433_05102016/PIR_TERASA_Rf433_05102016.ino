@@ -1,6 +1,13 @@
 /*
     Program za slanje signala prisustva osobe na dvoristu 
-    putem veze 433Mhz
+    sa PIR senzora putem veze 433Mhz
+    
+    Senzor salje kodove ON: 123451   ;  OFF: 123450
+    Senzor takodje salje stanje senzora na svakih 15 sekundi !
+    
+    Kontakt relea sa PIR senzora vezan je izmedju ulaza D2 i GND 
+    TX izlaz je pin A0 
+    Led dioda (pin 13) trepne svaki put pti prenosu signala
  
   Example for different sending methods
   https://github.com/sui77/rc-switch/
