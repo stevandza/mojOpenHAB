@@ -164,6 +164,18 @@ void loop() {
          mySerial.write(70);
          blink();
    break;
+   
+   case  123451:              //  Prijem koda sa PIR senzora ispod TERASE ( kod za ON  )
+         Serial.print("PIR senzor - neko se seta na dvoristu");
+         mySerial.write(81);
+         blink();
+   break;
+
+   case  123450:              //  Prijem koda sa PIR senzora ispod TERASE ( kod za OFF )
+         Serial.print("PIR senzor - ugasen");
+         mySerial.write(80);
+         blink();
+   break;
       
   }
       }
