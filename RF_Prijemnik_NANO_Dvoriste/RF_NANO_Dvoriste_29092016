@@ -27,6 +27,9 @@ void blink() {                  //  Blink diode pri svakom regularno primljenom 
 void setup() {
   
   pinMode(13, OUTPUT);    // Impulsni izlaz - Diodica na ploci NANO
+  
+  pinMode(7, OUTPUT);     // Izlaz za svetlo kada stigne signal sa PIR senzora na dvoristu
+  
   pinMode(8, OUTPUT);     //A
   pinMode(9, OUTPUT);     //B
   pinMode(10, OUTPUT);    //C
@@ -35,6 +38,7 @@ void setup() {
 
   digitalWrite(13, LOW);
   
+  digitalWrite(7, HIGH);
   digitalWrite(8, HIGH);
   digitalWrite(9, HIGH);
   digitalWrite(10, HIGH);
@@ -167,12 +171,14 @@ void loop() {
    
    case  123451:              //  Prijem koda sa PIR senzora ispod TERASE ( kod za ON  )
          Serial.print("PIR senzor - neko se seta na dvoristu");
+         digitalWrite(7,LOW);
          mySerial.write(81);
          blink();
    break;
 
    case  123450:              //  Prijem koda sa PIR senzora ispod TERASE ( kod za OFF )
          Serial.print("PIR senzor - ugasen");
+         digitalWrite(7,HIGH);
          mySerial.write(80);
          blink();
    break;
