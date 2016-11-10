@@ -57,12 +57,10 @@ PubSubClient client(ethClient);
 boolean gain;     // Gain setting, 0 = X1, 1 = X16;
 unsigned int ms;  // Integration ("shutter") time in milliseconds
 
-long lastMsg  = 0;
-long lastMsg1 = 0;
+unsigned long lastMsg  = 0;
+unsigned long lastMsg1 = 0;
 
 char msg1[10], msg2[10], msg3[10], lux_Ch[10];
-int  value  = 0;
-int  value1 = 0;
 
 int svd1=0;      //  Dimer rasvete na dvoristu
 int svn1=0;      //  Nivo svetla napolju
@@ -366,12 +364,11 @@ void loop() {
   }
  potDimOld = potDim;      
 
-//****** Petlja za slanje podataka na 5 sekundi *************
+//****** Petlja za slanje podataka na 10 sekundi *************
 
  long now = millis();
-  if (now - lastMsg > 5000) {
+  if (now - lastMsg > 10000) {
     lastMsg = now;
-    ++value;
 
 //****** Ocitavanje sa DHT22 senzora ***********************
 
@@ -428,10 +425,10 @@ void loop() {
 //***** Na svakih 1 minut uploduj sa openHAB-a trenutna stanja 10000 = 1.40 minuta ********
 
 
-long now1 = millis();
+unsigned long now1 = millis();
   if (now1 - lastMsg1 > 10000) {
     lastMsg1 = now1;
-    ++value1;
+   
 Serial.println(" ");    
 Serial.println("Redovno ocitavanje stanja prekidaca sa HAB-a !");
 client.subscribe("kuca/Dvo/#");
